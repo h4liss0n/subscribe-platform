@@ -1,7 +1,7 @@
 import * as _ from "lodash";
-import { ParseService } from "./service/ParseService";
 import { PurchaseService } from "./service/PurchaseService";
 import { ReceiptService } from "./service/ReceiptService";
+import { ParseService } from "./service/parse/ParseService";
 
 var items = document.getElementById("items") as HTMLTextAreaElement;
 var result = document.getElementById("result") as HTMLTextAreaElement;

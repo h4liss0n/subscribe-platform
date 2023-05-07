@@ -1,14 +1,12 @@
 import { Product } from "./ProductModel";
 
-export interface Basket {
-  id: string;
+export interface Basket {  
   product: BasketProduct[];
   total: number;
   salesTaxes: number;
 }
 
-export interface BasketProduct {
-  id: string;
+export interface BasketProduct {  
   product: Product;
   total: number;
   salesTaxes: number;

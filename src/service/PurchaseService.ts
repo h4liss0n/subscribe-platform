@@ -1,22 +1,28 @@
 import { Basket, BasketProduct } from "../model/BasketModel";
 import { Product } from "../model/ProductModel";
+import { RATE_BASIC, RATE_IMPORT } from "../model/TaxModel";
 import { roundUp, trunkCurrency } from "../utils/UtilsMath";
-import { TaxService } from "./TaxService";
 
 export class PurchaseService {
   items: BasketProduct[] = [];
 
   add(product: Product) {
-    const tax = TaxService.findTax(product.name);
+    var basicTax = 0;
+    var importTax = 0;
     const subTotal = product.quantity * product.price;
-    const basicTax = roundUp((subTotal * tax.basic) / 100);
-    const importTax = roundUp(
-      roundUp((product.price * tax.import) / 100) * product.quantity
-    );
+
+    if (product.taxTypes.includes("BASIC")) {
+      basicTax = roundUp((subTotal * RATE_BASIC) / 100);
+    }
+    if (product.taxTypes.includes("IMPORT")) {
+      importTax = roundUp(
+        roundUp((product.price * RATE_IMPORT) / 100) * product.quantity
+      );
+    }
+
     const salesTaxes = roundUp(importTax + basicTax);
     const total = trunkCurrency(subTotal + salesTaxes);
-    const item: BasketProduct = {
-      id: "",
+    const item: BasketProduct = {      
       product,
       total,
       salesTaxes,
@@ -41,8 +47,7 @@ export class PurchaseService {
   }
 
   getBasket(): Basket {
-    return {
-      id: "",
+    return {      
       product: this.items,
       salesTaxes: this.getSalesTaxes(),
       total: this.getTotal(),
