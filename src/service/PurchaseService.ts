@@ -12,7 +12,9 @@ export class PurchaseService {
     const subTotal = product.quantity * product.price;
 
     if (product.taxTypes.includes("BASIC")) {
-      basicTax = roundUp((subTotal * RATE_BASIC) / 100);
+      basicTax = roundUp(
+        roundUp((product.price * RATE_BASIC) / 100) * product.quantity
+      );
     }
     if (product.taxTypes.includes("IMPORT")) {
       importTax = roundUp(
