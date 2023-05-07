@@ -1,13 +1,11 @@
-import { arroundNumber } from "./UtilsMath";
+import { roundUp } from "./UtilsMath";
 
-describe("arroundNumber", () => {
-  it("arroundNumber - ", () => {   
-    expect(arroundNumber(2.375)).toEqual(2.4);
+describe("UtilsMath", () => {
+  it("roundUp - it should be arrount nearest 0.05 ", () => {
+    expect(roundUp(2.375)).toEqual(2.4);
   });
 
-  it("arroundNumber - ", () => {   
-    expect(arroundNumber(0.5625)).toEqual(0.6);
+  it("roundUp - it should be arrount nearest 0.05", () => {
+    expect(roundUp(0.5625)).toEqual(0.6);
   });
-  
-
 });

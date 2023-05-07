@@ -1,19 +1,23 @@
 import { TaxService } from "./TaxService";
 
 describe("TaxService", () => {
-  it("TaxService - when the product is a book and not imported, it should be basic sales tax zero", () => {
+  test("Basic tax for non-imported book should be zero", () => {
     const tax = TaxService.findTax("book");
-    expect(tax).toEqual({ basicTax: 0, importTax: 0 });
+    expect(tax).toEqual({ basic: 0, import: 0 });
   });
 
-  it("TaxService - when the product is a book and imported, it should be basic sales tax zero", () => {
-    const tax = TaxService.findTax("book imported");
-    expect(tax).toEqual({ basicTax: 0, importTax: 5 });
-  });  
+  test("Basic tax for imported book should be zero and import tax should be 5", () => {
+    const tax = TaxService.findTax("imported book");
+    expect(tax).toEqual({ basic: 0, import: 5 });
+  });
 
-  it("TaxService - when the product is a box of chocolates and imported, it should be basic sales tax zero", () => {
+  test("Basic sales tax for imported box of chocolates should be zero and import tax should be 5", () => {
     const tax = TaxService.findTax("imported box of chocolates");
-    expect(tax).toEqual({ basicTax: 0, importTax: 5 });
+    expect(tax).toEqual({ basic: 0, import: 5 });
   });
 
+  test("Basic tax for imported product that is not food should be 10 and import tax should be 5", () => {
+    const tax = TaxService.findTax("imported box of other");
+    expect(tax).toEqual({ basic: 10, import: 5 });
+  });
 });

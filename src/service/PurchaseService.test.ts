@@ -2,7 +2,7 @@ import { Product } from "../model/ProductModel";
 import { PurchaseService } from "./PurchaseService";
 
 describe("PurchaseService", () => {
-  it("PurchaseService - case 1", () => {
+  test("should calculate the correct sales taxes and total for case 1", () => {
     const purchaseService = new PurchaseService();
     const item1: Product = {
       name: "book",
@@ -21,14 +21,14 @@ describe("PurchaseService", () => {
     };
 
     purchaseService.add(item1);
-    purchaseService.add(item2); 
+    purchaseService.add(item2);
     purchaseService.add(item3);
-    
-    expect(purchaseService.getSalesTaxes()).toEqual(1.50);
+
+    expect(purchaseService.getSalesTaxes()).toEqual(1.5);
     expect(purchaseService.getTotal()).toEqual(42.32);
   });
 
-  it("PurchaseService - case 2", () => {
+  test("should calculate the correct sales taxes and total for case 2", () => {
     const purchaseService = new PurchaseService();
     const item1: Product = {
       name: "imported box of chocolates",
@@ -38,18 +38,17 @@ describe("PurchaseService", () => {
     const item2: Product = {
       name: "imported bottle of perfume",
       quantity: 1,
-      price: 47.50,
+      price: 47.5,
     };
 
     purchaseService.add(item1);
-    purchaseService.add(item2);     
+    purchaseService.add(item2);
 
     expect(purchaseService.getSalesTaxes()).toEqual(7.65);
     expect(purchaseService.getTotal()).toEqual(65.15);
   });
 
-
-  it("PurchaseService - case 1", () => {
+  test("should calculate the correct sales taxes and total for case 3", () => {
     const purchaseService = new PurchaseService();
     const item1: Product = {
       name: "imported bottle of perfume",
@@ -57,30 +56,27 @@ describe("PurchaseService", () => {
       price: 27.99,
     };
     const item2: Product = {
-      name: "bottle of perfume at",
+      name: "bottle of perfume",
       quantity: 1,
       price: 18.99,
     };
     const item3: Product = {
-      name: "packet of headache pills at",
+      name: "packet of headache pills",
       quantity: 1,
       price: 9.75,
     };
     const item4: Product = {
-      name: "imported boxes of chocolates",
+      name: "imported box of chocolates",
       quantity: 3,
       price: 11.25,
     };
 
     purchaseService.add(item1);
-    purchaseService.add(item2); 
+    purchaseService.add(item2);
     purchaseService.add(item3);
     purchaseService.add(item4);
-    
-     expect(purchaseService.getSalesTaxes()).toEqual(7.90);
+
+    expect(purchaseService.getSalesTaxes()).toEqual(7.9);
     expect(purchaseService.getTotal()).toEqual(98.38);
   });
-
-
-
 });

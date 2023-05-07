@@ -4,6 +4,7 @@
     "@types/lodash": "^4.14.194",
     "jest": "^29.5.0",
     "live-server": "^1.2.2",
+    "prettier": "2.8.8",
     "ts-jest": "^29.1.0",
     "ts-loader": "^9.4.2",
     "typescript": "^5.0.4",
@@ -16,6 +17,7 @@
     "test": "jest --watchAll",
     "build": "webpack",
     "dev": "webpack --progress --watch",
-    "server": "live-server dist"
+    "server": "live-server dist",
+    "format": "npx prettier --write ."
   }
 }

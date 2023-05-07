@@ -1,4 +1,4 @@
 export interface TaxModel {
-  basicTax: number;
-  importTax: number;
+  basic: number;
+  import: number;
 }
