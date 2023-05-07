@@ -1,5 +1,4 @@
 import { Product } from "./ProductModel";
-import { TaxModel } from "./TaxModel";
 
 export interface Basket {
   id: string;  
@@ -12,7 +11,5 @@ export interface BasketProduct {
   id: string;
   product: Product  
   total: number
-  salesTaxes: number
-  importTax: number
-  basicTax: number
+  salesTaxes: number 
 } 

@@ -12,16 +12,12 @@ export class PurchaseService {
     const basicTax =  arroundNumber((subTotal * tax.basicTax) / 100)
     const importTax =  arroundNumber(arroundNumber((product.price * tax.importTax) / 100) * product.quantity)
     const salesTaxes =  arroundNumber(importTax + basicTax)
-    
-
     const total = trunkCurrency(subTotal + salesTaxes)
     const item: BasketProduct = {
       id: "",
       product,
       total,  
-      salesTaxes,
-      importTax,
-      basicTax
+      salesTaxes,      
     };
     this.items.push(item);
   }

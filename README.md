@@ -1,9 +1,9 @@
 # subscribe-platform
-The application is available on: https://h4liss0n.github.io/subscribe-platform/
+ - The application is available on
+ - https://h4liss0n.github.io/subscribe-platform/
  
-## Installation
-Dillinger requires [Node.js](https://nodejs.org/) v10+ to run.
-Install the dependencies and devDependencies and start the server.
+# Installation
+## Install the dependencies and start the server.
 ```sh
 npm install
 npm rum build
