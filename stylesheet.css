@@ -1,0 +1,13 @@
+* {
+  margin: 0;
+}
+
+.textarea {
+  width: 50vw;
+  height: 30vh;
+  margin-top: 10px;
+}
+
+button {  
+  margin-top: 10px;
+}
