@@ -8,7 +8,11 @@
 npm install
 npm rum build
 npm run server
+open the url: http://127.0.0.1:8080/
 ```
+
+![subscribe-platform](https://github.com/h4liss0n/subscribe-platform/blob/master/doc/print.png)
+
 
 # Cases
 #### Input 1:
